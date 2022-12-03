@@ -37,8 +37,18 @@ class Timestamp(AbstractUDF):
         timestamp_result = seconds.apply(
             lambda x: self.format_timestamp(x[0]), axis=1
         )
+<<<<<<< HEAD
         return pd.DataFrame({"timestamp": timestamp_result.values})
 
     def format_timestamp(self, num_of_seconds):
         timestamp = time.strftime('%H:%M:%S', time.gmtime(num_of_seconds))
         return timestamp
+=======
+        print("final")
+        print(timestamp_result.head(5))
+        return pd.DataFrame({"timestamp": timestamp_result.values})
+
+    def format_timestamp(self, num_of_seconds):
+        timestamp = str(datetime.timedelta(seconds=num_of_seconds))
+        return timestamp
+>>>>>>> 481dc5131983db92d72e3c6e4f2a4aaa91751a5e
