@@ -1,6 +1,7 @@
 import datetime
 import numpy as np
 import pandas as pd
+import time
 
 
 from eva.udfs.abstract_udf import AbstractUDF
@@ -33,15 +34,11 @@ class Timestamp(AbstractUDF):
             raise ValueError("input contains wrong number of columns")
 
         seconds = pd.DataFrame(inp[inp.columns[0]])
-        print("seconds: ")
-        print(seconds.head(5))
         timestamp_result = seconds.apply(
             lambda x: self.format_timestamp(x[0]), axis=1
         )
-        print("final")
-        print(timestamp_result.head(5))
-        return pd.DataFrame({"ice_cream": timestamp_result.values})
+        return pd.DataFrame({"timestamp": timestamp_result.values})
 
     def format_timestamp(self, num_of_seconds):
-        timestamp = str(datetime.timedelta(seconds=num_of_seconds))
-        return str(datetime.timedelta(seconds=num_of_seconds))
+        timestamp = time.strftime('%H:%M:%S', time.gmtime(num_of_seconds))
+        return timestamp
