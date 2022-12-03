@@ -76,7 +76,3 @@ class OpenCVReader(AbstractReader):
                         yield {"id": frame_id, "data": frame}
                     else:
                         break
-
-def frame_id_to_time_string(frame_id, fps):
-    return datetime.timedelta(seconds=(frame_id // fps))
-

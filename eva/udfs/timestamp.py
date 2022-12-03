@@ -40,8 +40,8 @@ class Timestamp(AbstractUDF):
         )
         print("final")
         print(timestamp_result.head(5))
-        return pd.DataFrame({"ice_cream": timestamp_result.values})
+        return pd.DataFrame({"timestamp": timestamp_result.values})
 
     def format_timestamp(self, num_of_seconds):
         timestamp = str(datetime.timedelta(seconds=num_of_seconds))
-        return str(datetime.timedelta(seconds=num_of_seconds))
+        return timestamp

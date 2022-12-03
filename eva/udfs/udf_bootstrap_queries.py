@@ -80,7 +80,7 @@ Fastrcnn_udf_query = """CREATE UDF IF NOT EXISTS FastRCNNObjectDetector
 Timestamp_udf_query ="""CREATE UDF
             IF NOT EXISTS  Timestamp
             INPUT (seconds INTEGER)
-            OUTPUT (ice_cream NDARRAY STR(10))
+            OUTPUT (timestamp NDARRAY STR(8))
             TYPE NdarrayUDF
             IMPL "eva/udfs/timestamp.py";
         """
