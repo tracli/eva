@@ -108,6 +108,7 @@ class EvaClient(asyncio.Protocol):
     def data_received(self, data):
 
         response_chunk = data.decode()
+        print(response_chunk)
         logger.debug(
             "[ "
             + str(self.id)

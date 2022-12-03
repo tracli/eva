@@ -57,6 +57,7 @@ class Array_Count(AbstractUDF):
         count_result = values.apply(
             lambda x: self.count_in_row(x[0], search_element), axis=1
         )
+        print(count_result.to_string())
 
         return pd.DataFrame({"key_count": count_result.values})
 
